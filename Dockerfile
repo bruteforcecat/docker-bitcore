@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM node:4
 MAINTAINER KaFai Choi <kafaicoder@gmail.com>
 
 ENV HOME /bitcore
@@ -10,9 +10,8 @@ RUN apt-get update && apt-get install -y \
   curl
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-  && apt-get install -y nodejs
-RUN npm install bitcore@4.1.0 -g --unsafe
+run mkdir /bitcore
+RUN npm install -g --unsafe-perm bitcore@4.1.0
 
 VOLUME ["/bitcoin"]
 WORKDIR /bitcore
@@ -20,4 +19,3 @@ WORKDIR /bitcore
 COPY ./config/livenet.json ./bitcore-node.json
 
 ENTRYPOINT [ "bitcored", "-c", "./bitcore-node.json"]
-

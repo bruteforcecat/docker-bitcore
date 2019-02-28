@@ -10,7 +10,7 @@
     "bitcoind": {
       "spawn": {
         "datadir": "/bitcoin/.bitcoin",
-        "exec": "/usr/bin/bitcored"
+        "exec": "/usr/local/lib/node_modules/bitcore/node_modules/bitcore-node/bin/bitcoind"
       }
     }
   }
