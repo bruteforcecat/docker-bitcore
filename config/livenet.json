@@ -4,13 +4,12 @@
   "services": [
     "bitcoind",
     "insight-api",
-    "insight-ui",
     "web"
   ],
   "servicesConfig": {
     "bitcoind": {
       "spawn": {
-        "datadir": "/bitcoin",
+        "datadir": "/bitcoin/.bitcoin",
         "exec": "/usr/bin/bitcored"
       }
     }
